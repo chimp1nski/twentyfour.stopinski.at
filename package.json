@@ -15,12 +15,18 @@
   "dependencies": {
     "@astrojs/check": "^0.5.6",
     "@astrojs/cloudflare": "^9.1.0",
+    "@astrojs/solid-js": "^4.0.1",
+    "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.4.15",
+    "date-fns": "^3.6.0",
+    "solid-js": "^1.8.15",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.4.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240222.0",
     "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.12",
     "wrangler": "^3.32.0"
   }
 }

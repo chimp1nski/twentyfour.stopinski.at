@@ -1,5 +1,8 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
+import tailwind from "@astrojs/tailwind";
+
+import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -7,7 +10,8 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare({
     runtime: {
-      mode: "local",
-    },
+      mode: "local"
+    }
   }),
+  integrations: [tailwind(), solidJs()]
 });
