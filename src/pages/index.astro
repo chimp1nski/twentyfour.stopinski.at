@@ -1,48 +1,17 @@
+---
+import Time from "~/components/time/Time.tsx";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
     <title>Nothing to see here ;)</title>
   </head>
   <body>
-    <main>
-      <time id="time"></time>
-      <img src="https://source.unsplash.com/random/1920x1080?landscape" />
+    <main
+      class="h-screen w-screen overflow-hidden bg-bottom bg-cover bg-[url('https://source.unsplash.com/random/1920x1080?landscape')]"
+    >
+      <Time client:only />
     </main>
-
-    <script lang="ts">
-      const updateTime = () => {
-        const currentTime = new Date();
-        const hours = currentTime.getHours().toString().padStart(2, "0");
-        const minutes = currentTime.getMinutes().toString().padStart(2, "0");
-        const seconds = currentTime.getSeconds().toString().padStart(2, "0");
-        const formattedTime = `<span>${hours}</span>:<span>${minutes}</span>:<span>${seconds}</span>`;
-
-        document.getElementById("time").innerHTML = formattedTime;
-      };
-
-      setInterval(updateTime, 1000);
-    </script>
-    <style>
-      time {
-        position: fixed;
-        inset: 0;
-        z-index: 1;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.15ch;
-
-        font-family: monospace;
-        font-size: clamp(12px, 16vw, 16rem);
-        color: white;
-        mix-blend-mode: difference;
-      }
-
-      img {
-        position: fixed;
-        inset: 0;
-      }
-    </style>
   </body>
 </html>
