@@ -10,8 +10,8 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare({
     runtime: {
-      mode: "local"
-    }
+      mode: "local",
+    },
   }),
-  integrations: [tailwind(), solidJs()]
+  integrations: [tailwind(), solidJs()],
 });
