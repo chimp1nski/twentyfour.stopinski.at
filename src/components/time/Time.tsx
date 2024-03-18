@@ -61,6 +61,22 @@ const Time = () => {
       >
         {formattedTime()}
       </time>
+
+      <button
+        tabIndex={1}
+        class="fixed left-0 top-0 z-50 h-16 w-16 cursor-help rounded-br-2xl transition-colors duration-500 hover:bg-white/25 focus:bg-white/25 focus:outline-none"
+        onClick={() => {
+          toggleFullScreen();
+        }}
+        aria-lable="Toggle fullscreen mode"
+      />
+
+      <button
+        tabIndex={2}
+        class="fixed right-0 top-0 z-50 h-16 w-16 cursor-help rounded-bl-2xl transition-colors duration-500 hover:bg-white/25 focus:bg-white/25 focus:outline-none"
+        onClick={() => toggleBlend((v) => !v)}
+        aria-label="Toggle text blend"
+      />
     </>
   );
 };
