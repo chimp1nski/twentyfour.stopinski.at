@@ -1,0 +1,33 @@
+---
+import { db, Todo } from "astro:db";
+
+const todos = await db.select().from(Todo);
+---
+
+<section>
+	<h2>Todos</h2>
+	<nav class="flex flex-col gap-8 p-8">
+		{
+			todos.map(({ id, title, description, status }) => (
+				<a
+					href={`/todos/${id}`}
+					aria-label={title}
+					class="overflow-hidden rounded-lg border border-slate-400 bg-slate-100 p-1"
+				>
+					<article class="flex flex-col gap-2 p-1">
+						<header>
+							<span>{id}</span>
+							<h2>{title}</h2>
+						</header>
+						<p>{description}</p>
+						<p>{status}</p>
+						<input
+							type="checkbox"
+							checked={status === "complete"}
+						/>
+					</article>
+				</a>
+			))
+		}
+	</nav>
+</section>

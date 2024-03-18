@@ -1,0 +1,34 @@
+---
+import { db, Todo, eq } from "astro:db";
+import TodoComponent from "../../templates/Todo";
+
+const { id } = Astro.params;
+
+const todos = await db
+	.selectDistinct()
+	.from(Todo)
+	.where(eq(Todo.id, Number(id)));
+
+const todo = todos.find((todo) => todo.id === Number(id));
+---
+
+<main>
+	<nav>
+		<a
+			class="underline"
+			href="/todos"
+		>
+			Todos
+		</a>
+	</nav>
+	{
+		todo ? (
+			<TodoComponent
+				todo={todo}
+				client:only
+			/>
+		) : (
+			<div>Not a todo maaan!</div>
+		)
+	}
+</main>
